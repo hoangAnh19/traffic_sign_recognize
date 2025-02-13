@@ -1,0 +1,26 @@
+{% extends "template/roottemplate.html" %}
+
+{% block content %}
+<div class="table-container">
+    <h2 class="centered-title">Tra cứu biển báo</h2>
+    <br>
+    <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+        <tbody></tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        trafficinfomationrender.build();
+    });
+</script>
+
+<style>
+    /* Căn giữa chỉ cho tiêu đề */
+    .centered-title {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center; /* Căn giữa */
+        margin: 0 auto; /* Căn giữa nội dung */
+    }
+</style>
+{% endblock %}

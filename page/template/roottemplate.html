@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {{ title }}
+        {% endblock %}
+    </title>
+
+    <link rel="icon" type="image/png" href="/static/image/favicon.png">
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/bulma-extensions.min.css">
+    <link rel="stylesheet" href="/static/css/bulma-badge.min.css">
+    <link rel="stylesheet" href="/static/css/shinobicomponent.css">
+    <script>
+        var shinobi = {};
+    </script>
+    <script defer src="/static/js/jquery.min.js"></script>
+    <script defer src="/static/js/jPages.js"></script>
+    <script defer src="/static/js/simplescrollup.js"></script>
+    <script defer src="/static/js/bulma-extensions.min.js"></script>
+    <script defer src="/static/js/all.js"></script>
+    <script defer src="/static/js/notification.js"></script>
+    <script defer src="/static/js/mapping.js"></script>
+    <script defer src="/static/js/util.js"></script>
+    <script defer src="/static/js/indexrender.js"></script>
+    <script defer src="/static/js/trafficinfomationrender.js"></script>
+    <script defer src="/static/js/contactrender.js"></script>
+    <script defer src="/static/js/guiderender.js"></script>
+
+
+</head>
+
+<body class="has-background-light">
+    <nav class="navbar has-shadow is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <!-- Logo và tiêu đề -->
+        <a class="navbar-item" href="/">
+            <img src="/static/image/bkhn.png" alt="Logo" style="max-height: 50px; object-fit: cover;">
+        </a>
+
+        <!-- Hamburger menu cho màn hình nhỏ -->
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Navbar menu -->
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/index">
+                Trang chủ
+            </a>
+            <a class="navbar-item" href="/trafficinfomation" target="_blank">
+                Tra cứu biển báo
+            </a>
+            <a class="navbar-item" href="/contact" target="_blank">
+                Liên hệ
+            </a>
+        </div>
+        <!-- Thêm một phần tìm kiếm (search) nếu muốn -->
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Tìm kiếm...">
+                    </p>
+                    <p class="control">
+                        <button class="button is-info">
+                            <i class="fas fa-search"></i> Tìm kiếm
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="hero ">
+            <div class="hero-body">
+                <div class="columns">
+                    <div class="column is-10 is-offset-1 has-background-white box">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="top" href="#up" duraction="1000" height-hide="100" easing="easeInOutQuad"
+        class="button is-dark simplescrollup__button simplescrollup__button--hide" style="display: none;"><span
+            class="icon"><i class="fa fa-chevron-up"></i></span></a>
+    <div id="confirmPanel" class="modal is-small">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Cảnh báo</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">Bạn chắc chắn?</section>
+            <footer class="modal-card-foot">
+                <button class="button is-success yes">Xác nhận</button>
+                <button class="button cancel">Hủy</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="shinobinotification" class="notification  shinobinotification">
+        <button class="delete"></button>
+        <div class="notificationcontent">Update success</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            $(".navbar-burger").click(function () {
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+            });
+
+
+            function display() {
+                if ($(document).scrollTop() > 300) {
+                    //$("#top").show();
+                    $("#top").fadeIn(300);
+                } else {
+                    //$("#top").hide();
+                    $("#top").fadeOut(300);
+                }
+            }
+
+            $(window).bind("scroll", display);
+
+
+
+        });
+    </script>
+
+</body>
+
+<style>
+    /* Cải thiện kiểu dáng của navbar */
+    /* Cải thiện kiểu dáng của navbar */
+.navbar {
+    background-color: #333;
+    padding: 1rem 1.5rem;
+}
+
+.navbar-item {
+    font-size: 18px;  /* Tăng kích thước chữ */
+    color: #f4a261;  /* Màu chữ vàng nhạt */
+    font-weight: bold;  /* Làm chữ đậm */
+    transition: color 0.3s ease-in-out; /* Thêm hiệu ứng chuyển màu */
+}
+
+/* Thêm hiệu ứng hover với màu vàng sáng hơn */
+.navbar-item:hover {
+    color: #ffcc00;  /* Màu vàng sáng khi hover */
+}
+
+/* Cải thiện thiết kế burger */
+.navbar-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    height: 20px;
+    justify-content: space-between;
+}
+
+.navbar-burger span {
+    background-color: white;
+    border-radius: 5px;
+    height: 4px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Khi burger menu được click */
+.navbar-burger.is-active span:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+}
+
+.navbar-burger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-burger.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6px);
+}
+
+/* Responsive: khi màn hình nhỏ */
+@media screen and (max-width: 1024px) {
+    .navbar-burger {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-menu.is-active {
+        display: block;
+    }
+}
+
+/* Tùy chỉnh khi menu được mở */
+.navbar-menu.is-active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
+    /* Thêm style cho thanh tìm kiếm */
+    .field.has-addons .input {
+        border-radius: 50px;
+        box-shadow: none;
+    }
+
+    .button.is-info {
+        background-color: #4a90e2;
+        border-color: #4a90e2;
+    }
+
+    .button.is-info:hover {
+        background-color: #357ab7;
+    }
+
+</style>
+
+<script>
+    // JavaScript để mở/đóng burger menu
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.navbar-burger');
+        const menu = document.getElementById('navbarExampleTransparentExample');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+
+
+
+</html>
+
