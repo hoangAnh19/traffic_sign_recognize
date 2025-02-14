@@ -4,8 +4,8 @@
 <h2>Yêu cầu:</h2>
 <b>Python:</b><br>
 Code train model tại thư mục 
-<pre>cd parentProjectPath/traffic_sign_recognize-master </pre>
-
+<pre>train_model_traffic_sign_recognize </pre>
+Lệnh chạy project 
 <pre>python manage.py runserver</pre><br>
 Di chuyển đến thư mục chứa project
 <pre>cd parentProjectPath/traffic_sign_recognize-master </pre>
