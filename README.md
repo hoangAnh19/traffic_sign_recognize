@@ -3,7 +3,10 @@
 
 <h2>Yêu cầu:</h2>
 <b>Python:</b><br>
+Code train model tại thư mục 
+<pre>cd parentProjectPath/traffic_sign_recognize-master </pre>
 
+<pre>python manage.py runserver</pre><br>
 Di chuyển đến thư mục chứa project
 <pre>cd parentProjectPath/traffic_sign_recognize-master </pre>
 Chạy server
