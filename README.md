@@ -5,8 +5,8 @@
 <b>Python:</b><br>
 Code train model tại thư mục 
 <pre>train_model_traffic_sign_recognize </pre>
-Lệnh chạy project 
-<pre>python manage.py runserver</pre><br>
+
+
 Di chuyển đến thư mục chứa project
 <pre>cd parentProjectPath/traffic_sign_recognize-master </pre>
 Chạy server
