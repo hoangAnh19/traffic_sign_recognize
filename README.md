@@ -21,11 +21,3 @@ Sau khi chạy server thành công truy cập địa chỉ <a href="http://local
      <li>127: Tốc độ tối đa cho phép</li>
 </ul>
 
-<br>
-<h2>Chức năng chính</h2>
-<b>Trang chủ</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nhận diện biển báo từ ảnh môi trường<br><br>
-<img src="https://github.com/quangkhoiuit98/trafficsignrecognize/blob/master/static/image/demo.gif"><br>
-<b>Trang tra cứu biển báo</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tra cứu biển báo từ dữ liệu của ứng dụng<br><br>
-
